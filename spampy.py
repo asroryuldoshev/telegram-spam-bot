@@ -28,8 +28,9 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-BOT_TOKEN = os.getenv("8470930218:AAFsl3vhM2IjmEAiXvUrhHggWRI2S1c3kNk")
-SUPER_ADMIN_ID = int(os.getenv("6865839819", "0"))
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+SUPER_ADMIN_ID = int(os.getenv("SUPER_ADMIN_ID", "0"))
+LOG_CHANNEL_ID = os.getenv("LOG_CHANNEL_ID")
 
 warnings:    dict[tuple[int, int], int]      = defaultdict(int)
 muted_until: dict[tuple[int, int], datetime] = {}
@@ -839,9 +840,7 @@ async def post_init(application: Application) -> None:
 # ════ MAIN ══════════════════════════════════════════════════════
 
 def main():
-  
-    if not SUPER_ADMIN_ID:
-        raise SystemExit("❌ SUPER_ADMIN_ID topilmadi! .env faylini tekshiring.")
+
 
     app = Application.builder().token(BOT_TOKEN).post_init(post_init).build()
 
@@ -877,6 +876,8 @@ def main():
                 len(SWEAR_WORDS_EXACT) + len(SWEAR_WORDS_PARTIAL))
     logger.info("=" * 60)
 
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
     app.run_polling(allowed_updates=Update.ALL_TYPES, drop_pending_updates=True)
 
 
