@@ -839,8 +839,7 @@ async def post_init(application: Application) -> None:
 # ════ MAIN ══════════════════════════════════════════════════════
 
 def main():
-    if not BOT_TOKEN:
-        raise SystemExit("❌ BOT_TOKEN topilmadi! .env faylini tekshiring.")
+  
     if not SUPER_ADMIN_ID:
         raise SystemExit("❌ SUPER_ADMIN_ID topilmadi! .env faylini tekshiring.")
 
