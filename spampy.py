@@ -28,8 +28,13 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+<<<<<<< HEAD
 BOT_TOKEN = os.getenv("8470930218:AAFsl3vhM2IjmEAiXvUrhHggWRI2S1c3kNk")
 SUPER_ADMIN_ID = int(os.getenv("6865839819"))
+=======
+BOT_TOKEN      = os.getenv("8470930218:AAFsl3vhM2IjmEAiXvUrhHggWRI2S1c3kNk", "")
+SUPER_ADMIN_ID = int(os.getenv("6865839819 ", 0))
+>>>>>>> d666ed77b8f9303bd7be3a7620eae8a7d2cca3ce
 LOG_CHANNEL_ID = os.getenv("LOG_CHANNEL_ID", "")
 
 warnings:    dict[tuple[int, int], int]      = defaultdict(int)
