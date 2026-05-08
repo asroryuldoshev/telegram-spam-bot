@@ -28,8 +28,8 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-BOT_TOKEN      = os.getenv("8470930218:AAFsl3vhM2IjmEAiXvUrhHggWRI2S1c3kNk", "")
-SUPER_ADMIN_ID = int(os.getenv("6865839819 ", 0))
+BOT_TOKEN = os.getenv("8470930218:AAFsl3vhM2IjmEAiXvUrhHggWRI2S1c3kNk")
+SUPER_ADMIN_ID = int(os.getenv("6865839819"))
 LOG_CHANNEL_ID = os.getenv("LOG_CHANNEL_ID", "")
 
 warnings:    dict[tuple[int, int], int]      = defaultdict(int)
@@ -884,4 +884,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-git add .
